@@ -1,0 +1,214 @@
+/* ==========================
+   VARIÁVEIS E BASE GLOBAL
+   ========================== */
+:root {
+  /* Paleta de cores */
+  --cor-primaria: #2E7D32;     /* Verde */
+  --cor-secundaria: #4FC3F7;   /* Azul-céu */
+  --cor-neutra: #D7CCC8;       /* Marrom claro */
+  --cor-texto: #212121;
+  --cor-fundo: #FAFAFA;
+
+  /* Tipografia */
+  --fonte-principal: 'Segoe UI', Arial, sans-serif;
+
+  /* Escala tipográfica */
+  --h1: 2.5rem;
+  --h2: 2rem;
+  --h3: 1.75rem;
+  --h4: 1.5rem;
+  --h5: 1.25rem;
+  --h6: 1rem;
+
+  /* Espaçamento modular */
+  --esp-1: 8px;
+  --esp-2: 16px;
+  --esp-3: 24px;
+  --esp-4: 32px;
+  --esp-5: 48px;
+  --esp-6: 64px;
+
+  /* Sistema de grid */
+  --col-gap: 16px;
+  --num-colunas: 12;
+}
+
+/* ==========================
+   RESET E BASE
+   ========================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fonte-principal);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+
+/* ==========================
+   LAYOUT PRINCIPAL (GRID)
+   ========================== */
+.container {
+  display: grid;
+  grid-template-columns: repeat(var(--num-colunas), 1fr);
+  gap: var(--col-gap);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--esp-4);
+}
+
+/* ==========================
+   CABEÇALHO E MENU
+   ========================== */
+header {
+  background-color: var(--cor-primaria);
+  color: white;
+  padding: var(--esp-2);
+}
+
+header h1 {
+  font-size: var(--h3);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-2);
+  justify-content: center;
+  margin-top: var(--esp-2);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: var(--esp-1) var(--esp-2);
+  transition: background 0.3s;
+}
+
+nav a:hover {
+  background-color: var(--cor-secundaria);
+  border-radius: 8px;
+}
+
+/* Submenu dropdown (CSS-only) */
+nav li {
+  position: relative;
+}
+nav li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--cor-primaria);
+  padding: var(--esp-1);
+  border-radius: 4px;
+}
+nav li:hover ul {
+  display: block;
+}
+
+/* Menu hamburguer (CSS puro) */
+.menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+  }
+  .menu-toggle:checked + nav ul {
+    display: flex;
+  }
+  .menu-icon {
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: var(--cor-secundaria);
+    color: white;
+    padding: var(--esp-1);
+  }
+}
+
+/* ==========================
+   CONTEÚDO PRINCIPAL
+   ========================== */
+main {
+  grid-column: 1 / -1;
+  padding: var(--esp-4) 0;
+}
+
+section {
+  margin-bottom: var(--esp-5);
+}
+
+h2 {
+  font-size: var(--h2);
+  color: var(--cor-primaria);
+  margin-bottom: var(--esp-2);
+}
+
+/* ==========================
+   BADGES E TAGS
+   ========================== */
+.badge {
+  display: inline-block;
+  background-color: var(--cor-secundaria);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  margin-right: var(--esp-1);
+}
+
+/* ==========================
+   FORMULÁRIOS
+   ========================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-2);
+  max-width: 600px;
+}
+
+fieldset {
+  border: 2px solid var(--cor-neutra);
+  padding: var(--esp-2);
+  border-radius: 8px;
+}
+
+legend {
+  font-weight: bold;
+  color: var(--cor-primaria);
+}
+
+/* ==========================
+   RODAPÉ
+   ========================== */
+footer {
+  grid-column: 1 / -1;
+  background-color: var(--cor-neutra);
+  text-align: center;
+  padding: var(--esp-3);
+  margin-top: var(--esp-4);
+}
+
+/* ==========================
+   BREAKPOINTS
+   ========================== */
+@media (max-width: 1200px) { body { font-size: 15px; } }
+@media (max-width: 992px) { body { font-size: 14px; } }
+@media (max-width: 768px) { body { font-size: 13px; } }
+@media (max-width: 576px) { body { font-size: 12px; } }
+@media (max-width: 400px) { body { font-size: 11px; } }
