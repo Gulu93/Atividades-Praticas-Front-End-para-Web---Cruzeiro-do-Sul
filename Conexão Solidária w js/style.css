@@ -1,0 +1,81 @@
+:root{
+.container{max-width:1200px;margin:0 auto;padding:var(--esp-4);display:grid;grid-template-columns:repeat(var(--num-col),1fr);gap:var(--gutter)}
+
+
+/* Header */
+.cabecalho{grid-column:1/-1;background:var(--cor-primaria);color:var(--text-on-primary);padding:var(--esp-2)}
+.cabecalho .logo{font-size:var(--fs-3)}
+
+
+/* Menu */
+.menu{grid-column:auto}
+.menu ul{list-style:none;display:flex;gap:var(--esp-2);align-items:center}
+.menu a{color:var(--text-on-primary);text-decoration:none;padding:6px 10px;border-radius:6px}
+.menu a:hover{background:rgba(255,255,255,0.08)}
+
+
+/* Submenu accessible with focus-within */
+.menu ul li{position:relative}
+.menu ul li ul{display:none;position:absolute;top:100%;left:0;background:var(--cor-primaria);padding:var(--esp-2);border-radius:6px}
+.menu ul li:focus-within>ul,.menu ul li:hover>ul{display:block}
+
+
+/* Hamburger checkbox for mobile */
+.menu-toggle{display:none}
+.menu-icon{display:none}
+@media (max-width:768px){
+.menu ul{display:none;flex-direction:column;background:var(--bg);color:var(--text);width:100%;padding:var(--esp-2);margin-top:var(--esp-2)}
+.menu-toggle:checked + .menu ul{display:flex}
+.menu-icon{display:inline-block;background:var(--cor-secundaria);color:#000;padding:8px;border-radius:6px}
+}
+
+
+/* Main */
+.principal{grid-column:1/-1;padding:var(--esp-4) 0}
+.hero{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gutter);align-items:center}
+.hero-img{grid-column:1/8;width:100%;height:auto;border-radius:8px}
+.hero-texto{grid-column:8/13;padding:var(--esp-2)}
+.btn{display:inline-block;background:var(--cor-primaria);color:var(--text-on-primary);padding:10px 16px;border-radius:8px;text-decoration:none}
+
+
+/* Projects grid */
+.grid-projetos{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gutter)}
+.card{background:var(--bg);padding:var(--esp-3);border-radius:8px;box-shadow:0 6px 14px rgba(0,0,0,0.06)}
+.card img{width:100%;height:auto;border-radius:6px}
+.card h3{margin-top:var(--esp-2)}
+
+
+/* Badges */
+.badge{display:inline-block;padding:4px 10px;border-radius:999px;font-weight:600}
+.badge.verde{background:var(--cor-primaria);color:var(--text-on-primary)}
+.badge.azul{background:var(--cor-secundaria);color:var(--text-on-secondary)}
+.badge.marrom{background:var(--cor-neutra);color:var(--text)}
+
+
+/* Form */
+.formulario{display:flex;flex-direction:column;gap:var(--esp-2);max-width:680px}
+fieldset{border:2px solid var(--cor-neutra);padding:var(--esp-2);border-radius:8px}
+legend{font-weight:700;color:var(--cor-primaria)}
+input,textarea{padding:10px;border-radius:6px;border:1px solid #ccc;width:100%}
+input:focus,textarea:focus{outline:3px solid var(--cor-secundaria);outline-offset:2px}
+
+
+/* Footer */
+.rodape{grid-column:1/-1;background:var(--cor-neutra);padding:var(--esp-3);text-align:center}
+
+
+/* Accessibility helpers */
+:focus{outline:3px solid var(--cor-secundaria);outline-offset:2px}
+
+
+/* Responsive adjustments (5 breakpoints) */
+@media (max-width:1280px){.hero-texto{grid-column:7/13}.hero-img{grid-column:1/7}}
+@media (max-width:1024px){.hero-texto{grid-column:6/13}.hero-img{grid-column:1/6}}
+@media (max-width:768px){.container{grid-template-columns:repeat(4,1fr)}.hero-img{grid-column:1/5}.hero-texto{grid-column:1/5}}
+@media (max-width:640px){body{font-size:14px}}
+@media (max-width:480px){body{font-size:13px}}
+
+
+/* Ensure contrast: overrides if necessary */
+.cabecalho,.menu a {color:var(--text-on-primary)}
+}
