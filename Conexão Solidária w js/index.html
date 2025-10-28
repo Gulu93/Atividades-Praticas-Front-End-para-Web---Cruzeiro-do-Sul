@@ -1,42 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Conexão Solidária</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Conexão Solidária</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="cabecalho">
-    <div class="container">
-      <h1 class="logo">Conexão Solidária</h1>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header class="cabecalho" role="banner">
+<div class="container">
+<h1 class="logo">Conexão Solidária</h1>
 
-      <!-- Menu -->
-      <input type="checkbox" id="menu-toggle">
-      <label for="menu-toggle" class="menu-icon">&#9776;</label>
 
-      <nav class="menu">
-        <ul>
-          <li><a href="#/" class="nav-link">Início</a></li>
-          <li><a href="#/projetos" class="nav-link">Projetos</a></li>
-          <li><a href="#/cadastro" class="nav-link">Cadastro</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<!-- Menu hamburguer sem JS (checkbox) -->
+<input type="checkbox" id="menu-toggle" class="menu-toggle" />
+<label for="menu-toggle" class="menu-icon" aria-hidden="true">☰</label>
 
-  <!-- Aqui o conteúdo das páginas será carregado -->
-  <main id="conteudo" class="principal container"></main>
 
-  <footer class="rodape">
-    <p>&copy; 2025 Conexão Solidária — Todos os direitos reservados.</p>
-  </footer>
+<nav class="menu" role="navigation" aria-label="Menu principal">
+<ul>
+<li><a href="#/" class="nav-link">Início</a></li>
+<li>
+<a href="#/projetos" class="nav-link">Projetos</a>
+<ul class="submenu" aria-label="Submenu projetos">
+<li><a href="#/projetos#educacao">Educação</a></li>
+<li><a href="#/projetos#meioambiente">Meio Ambiente</a></li>
+<li><a href="#/projetos#alimentacao">Alimentação</a></li>
+</ul>
+</li>
+<li><a href="#/cadastro" class="nav-link">Cadastro</a></li>
+</ul>
+</nav>
+</div>
+</header>
 
-  <!-- Scripts -->
-  <script src="js/router.js"></script>
-  <script src="js/templates/home.js"></script>
-  <script src="js/templates/projetos.js"></script>
-  <script src="js/templates/cadastro.js"></script>
-  <script src="js/app.js"></script>
+
+<main id="conteudo" class="principal container" role="main" tabindex="-1" aria-live="polite"></main>
+
+
+<footer class="rodape" role="contentinfo">
+<p>&copy; 2025 Conexão Solidária — Todos os direitos reservados.</p>
+<div class="theme-controls">
+<button id="themeToggle" aria-pressed="false">Alternar tema</button>
+</div>
+</footer>
+
+
+<!-- Scripts -->
+<script src="js/router.js"></script>
+<script src="js/templates/home.js"></script>
+<script src="js/templates/projetos.js"></script>
+<script src="js/templates/cadastro.js"></script>
+<script src="js/app.js"></script>
+<script src="js/accessibility.js"></script>
+<script src="js/theme.js"></script>
 </body>
 </html>

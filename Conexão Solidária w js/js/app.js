@@ -1,12 +1,15 @@
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('Conexão Solidária SPA carregada com sucesso!');
+document.addEventListener('DOMContentLoaded', function(){
 
-  // Evita recarregar ao clicar em links
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const href = e.target.getAttribute('href');
-      window.location.hash = href;
-    });
-  });
+document.querySelectorAll('.nav-link').forEach(link => {
+link.addEventListener('click', function(e){
+
+const href = link.getAttribute('href');
+if (!href.startsWith('#')) return;
+e.preventDefault();
+window.location.hash = href.replace('#', '');
+});
+});
+
+
+if (!window.location.hash) window.location.hash = '#/';
 });

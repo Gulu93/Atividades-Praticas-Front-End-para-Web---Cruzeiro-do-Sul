@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "build:css": "csso style.css --output dist/style.min.css",
+    "build:js": "terser js/*.js --compress --mangle --output dist/app.min.js",
+    "build:html": "html-minifier-terser --collapse-whitespace --remove-comments index.html -o dist/index.html",
+    "build:images": "imagemin imagens/* --out-dir=dist/imagens",
+    "release": "standard-version"
+  },
+  "devDependencies": {
+    "csso-cli": "^5.0.0",
+    "terser": "^5.0.0",
+    "html-minifier-terser": "^6.0.0",
+    "imagemin-cli": "^7.0.0",
+    "standard-version": "^9.0.0"
+  }
+}
